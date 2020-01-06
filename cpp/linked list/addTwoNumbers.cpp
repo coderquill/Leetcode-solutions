@@ -19,7 +19,9 @@ public:
                 carry = 1;
                 a = a%10;
             }
+            else{carry = 0;}
             temp->next = new ListNode(a);
+           
             temp = temp->next;
             l1 = l1->next;
             l2 = l2->next;
@@ -30,7 +32,9 @@ public:
                 carry = 1;
                 a = a%10;
             }
+             else{carry = 0;}
             temp->next = new ListNode(a);
+            
             temp = temp->next;
             l1 = l1->next;
             
@@ -41,15 +45,21 @@ public:
                 carry = 1;
                 a = a%10;
             }
+             else{carry = 0;}
             temp->next = new ListNode(a);
+            
             temp = temp->next;
             l2 = l2->next;
         }
         if(carry){
-            if(a>9){
+            //cout<<a<<" "<<carry<<endl;
+            if(carry == 0){
+                return head->next;
+            }
+            else{
             temp->next = new ListNode(1);
             temp = temp->next;
-            }
+           }
         }
         
         return head->next;
